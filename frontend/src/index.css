@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Fraunces", ui-serif, Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-paper: #F7F6F3;
+  --color-paper-dim: #EFEDE7;
+  --color-ink: #15171C;
+  --color-ink-soft: #4B4E57;
+  --color-line: #DEDCD5;
+  --color-accent: #1F3A5F;
+  --color-accent-soft: #E9EEF4;
+  --color-urgent: #C1432E;
+  --color-urgent-soft: #FBECE8;
+  --color-good: #2F6B4F;
+  --color-good-soft: #EAF3EE;
+}
+
+html {
+  background: var(--color-paper);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+}
+
+.font-display {
+  font-family: var(--font-serif);
+}
+
+/* Dark theme overrides */
+html.dark {
+  --color-paper: #12151B;
+  --color-paper-dim: #1A1E26;
+  --color-ink: #F3F3F1;
+  --color-ink-soft: #9BA1B0;
+  --color-line: #2B303C;
+  --color-accent: #6C92C3;
+  --color-accent-soft: #1C2636;
+  --color-urgent: #E05A44;
+  --color-urgent-soft: #381E1C;
+  --color-good: #4BA87D;
+  --color-good-soft: #1B2E24;
+}
+
+.dark body {
+  color: var(--color-ink);
+}
+
+.dark .bg-white {
+  background-color: #1A1E26 !important;
+  color: #F3F3F1;
+}
+
+.dark .bg-paper-dim {
+  background-color: #222733 !important;
+}
+
+.dark input, .dark select, .dark textarea {
+  background-color: #1A1E26 !important;
+  color: #F3F3F1 !important;
+  border-color: #2B303C !important;
+}
+
+.dark .bg-ink {
+  background-color: #F3F3F1 !important;
+  color: #12151B !important;
+}
+
+.dark .text-ink {
+  color: #F3F3F1 !important;
+}
+
+.dark .text-ink-soft {
+  color: #9BA1B0 !important;
+}
+
+.dark .border-line {
+  border-color: #2B303C !important;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-rise {
+  animation: rise 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Micro-interaction & card hover states */
+.card-hover {
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.18s ease, border-color 0.18s ease;
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.08);
+}
+.dark .card-hover:hover {
+  box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.45);
+}
+
+.btn-hover {
+  transition: transform 0.12s ease, background-color 0.15s ease, opacity 0.15s ease;
+}
+.btn-hover:active {
+  transform: scale(0.98);
+}
